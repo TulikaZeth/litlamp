@@ -40,7 +40,7 @@ After deployment starts:
 - Click **"Environment"** tab
 - Add the following **Secret File**:
   - Key: `GOOGLE_API_KEY`
-  - Value: `AIzaSyBYO7t8NV8lIuA384GB9RFtNMS8NGMR3AU`
+
 - Click **"Save Changes"**
 
 #### 4. **Wait for Deployment**
