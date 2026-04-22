@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: ragbot
+    runtime: docker
+    region: oregon
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: CHAT_MODEL
+        value: gemini-2.5-flash
+      - key: EMBEDDING_MODEL
+        value: sentence-transformers/all-MiniLM-L6-v2
+      - key: RETRIEVAL_K
+        value: 8
+      - key: RERANKER_TOP_K
+        value: 4
+      - key: USE_RERANKER
+        value: true
+      - key: CHUNK_SIZE
+        value: 1000
+      - key: CHUNK_OVERLAP
+        value: 200
+      - key: USE_OCR
+        value: true
+      - key: PERSIST_DIR
+        value: /app/chroma_db
+    healthCheckPath: /api/health
